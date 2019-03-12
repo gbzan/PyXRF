@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data analysis at NSLS II beamlines &#8212; pyxrf v0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Output data from pyxrf" href="data_output.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-analysis-at-nsls-ii-beamlines">
+<h1>Data analysis at NSLS II beamlines<a class="headerlink" href="#data-analysis-at-nsls-ii-beamlines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-working-directory">
+<h2>Create working directory<a class="headerlink" href="#create-working-directory" title="Permalink to this headline">¶</a></h2>
+<p>For instance at HXN, users usually create a directory under /data/users/2017Q1/
+All the experimental data and fitting results will be saved in the created folder.</p>
+</div>
+<div class="section" id="load-fluorescence-data-from-database">
+<h2>Load fluorescence data from database<a class="headerlink" href="#load-fluorescence-data-from-database" title="Permalink to this headline">¶</a></h2>
+<p>At your working directory, first go to pyxrf environment, then type ipython.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">pyxrf</span>
+<span class="n">ipython</span>
+</pre></div>
+</div>
+<p>Next users need to import important functions from pyxrf by typing</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyxrf.api</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>If only load one file</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span>make_hdf(1000, fname=‘scan_1000.h5’)
+</pre></div>
+</div>
+<p>Note: the first argument of function ”make_hdf” is the run#(i.e., 1000), the second is the hdf filename to be saved. It may take several minutes to load 200by200 dataset. When loading process is done, you will see ‘scan_1000.h5’ is created in your working directory. Use pyxrf to load that data and work on it.
+Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
+<p>If load multiple files</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">make_hdf</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: the first argument is the starting run #, the second argument is the ending run #. This function will automatically transform all the fluorescence data within the run number range. If you want to define a prefix name, you can do make_hdf(1000, 1100, prefix=’<a href="#id1"><span class="problematic" id="id2">abc_</span></a>’). The default prefix name is ‘<a href="#id3"><span class="problematic" id="id4">scan2D_</span></a>’.
+Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
+<p>How to load image data from merlin detector</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span>export_hdf(1000, ‘myfile_1000.h5’)
+</pre></div>
+</div>
+<p>Note: the first argument is the run id, while the second is the file name to save data.
+Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
+</div>
+<div class="section" id="how-to-run-pyxrf">
+<h2>How to run PyXRF<a class="headerlink" href="#how-to-run-pyxrf" title="Permalink to this headline">¶</a></h2>
+<p>PyXRF is a python-based x-ray fluorescence analysis package. Type the following two lines in a newly opened terminal console to initiate pyxrf.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">pyxrf</span>
+<span class="n">pyxrf</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data analysis at NSLS II beamlines</a><ul>
+<li><a class="reference internal" href="#create-working-directory">Create working directory</a></li>
+<li><a class="reference internal" href="#load-fluorescence-data-from-database">Load fluorescence data from database</a></li>
+<li><a class="reference internal" href="#how-to-run-pyxrf">How to run PyXRF</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="data_output.html" title="previous chapter">Output data from pyxrf</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/work_at_beamlines.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Li Li.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/work_at_beamlines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

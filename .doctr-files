@@ -1,9 +1,13 @@
 ./_images/define_h5file.jpg
+./_images/load_parameter_file.png
+./_images/more_datasets.png
 ./_images/select_data_plot.png
+./_images/zoomin_plot.png
 ./_sources/data_input.rst.txt
 ./_sources/data_output.rst.txt
 ./_sources/index.rst.txt
 ./_sources/summed_spectrum_fit.rst.txt
+./_sources/work_at_beamlines.rst.txt
 ./_static/ajax-loader.gif
 ./_static/alabaster.css
 ./_static/basic.css
@@ -20,7 +24,9 @@
 ./_static/file.png
 ./_static/jquery-3.2.1.js
 ./_static/jquery.js
+./_static/load_parameter_file.png
 ./_static/minus.png
+./_static/more_datasets.png
 ./_static/plus.png
 ./_static/pygments.css
 ./_static/searchtools.js
@@ -30,6 +36,7 @@
 ./_static/up-pressed.png
 ./_static/up.png
 ./_static/websupport.js
+./_static/zoomin_plot.png
 ./data_input.html
 ./data_output.html
 ./genindex.html
@@ -38,3 +45,4 @@
 ./search.html
 ./searchindex.js
 ./summed_spectrum_fit.html
+./work_at_beamlines.html
