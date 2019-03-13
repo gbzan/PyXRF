@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; pyxrf v0.0.1 documentation</title>
+    <title>Installation &#8212; PyXRF v0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -44,14 +44,14 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>PyXRF works for python 2.7, 3.5 and 3.6 in Linux system. For Mac and Windows, we
+<p>PyXRF works for python 2.7, 3.5 and 3.6 in Linux/Mac system. For Windows, we
 only support python 3.5 version. We plan to move PyXRF to conda-forge soon.</p>
 <p>First you need to install [conda] (<a class="reference external" href="http://continuum.io/downloads">http://continuum.io/downloads</a>). We suggest
 anaconda because it is a complete installation of the entire scientific python
 stack, but is ~400 MB.  For advanced users, consider downloading [miniconda]
 (<a class="reference external" href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>) because it is a smaller download (~20 MB).</p>
-<div class="section" id="linux-or-mac">
-<h2>Linux or Mac<a class="headerlink" href="#linux-or-mac" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux-mac">
+<h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this headline">¶</a></h2>
 <p>Create a conda environment (say pyxrf_test) with python 3.6.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pyxrf_test</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.6</span>
 </pre></div>
@@ -61,13 +61,11 @@ stack, but is ~400 MB.  For advanced users, consider downloading [miniconda]
 </pre></div>
 </div>
 <p>At the same environment, install pyxrf by simply typing</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="n">xraylib</span><span class="o">=</span><span class="mf">3.2</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
-<p>For python 3.5 (Mac), please type</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="n">pyqt</span><span class="o">=</span><span class="mf">4.11</span> <span class="n">enaml</span><span class="o">=</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">8</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-</pre></div>
-</div>
+<p>Note: there is some conflict with xraylib=3.3, so we put a constraint on xraylib.
+This can be removed later.</p>
 </div>
 <div class="section" id="windows">
 <h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
@@ -136,7 +134,7 @@ first, then launch the software. For linux and mac system, type</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#linux-or-mac">Linux or Mac</a></li>
+<li><a class="reference internal" href="#linux-mac">Linux/Mac</a></li>
 <li><a class="reference internal" href="#windows">Windows</a></li>
 <li><a class="reference internal" href="#run-pyxrf">Run PyXRF</a></li>
 <li><a class="reference internal" href="#update-pyxrf">Update PyXRF</a></li>
@@ -175,7 +173,7 @@ first, then launch the software. For linux and mac system, type</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2017, Li Li.
+      &copy;2019, Li Li.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>

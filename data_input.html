@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Load data into pyxrf &#8212; pyxrf v0.0.1 documentation</title>
+    <title>Load data into pyxrf &#8212; PyXRF v0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -44,13 +44,15 @@
             
   <div class="section" id="load-data-into-pyxrf">
 <h1>Load data into pyxrf<a class="headerlink" href="#load-data-into-pyxrf" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-hdf5-file-into-pyxrf">
+<h2>Load hdf5 file into pyxrf<a class="headerlink" href="#load-hdf5-file-into-pyxrf" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Define working directory by selecting “Working Directory” button, shown in figure 1.</li>
-<li>After selecting working directory, you can load h5 file by clicking “Load Data File” button as shown in figure 1. This is an example data
-from HXN beam line at NSLS II. (Currently we mainly support h5 file.)</li>
+<li>After selecting working directory, you can load hdf5 file by clicking “Load Data File” button as shown in figure 1. This is an example data
+from HXN beam line at NSLS II. (Currently we mainly support hdf5 file.)</li>
 </ul>
 <img alt="_images/define_h5file.jpg" src="_images/define_h5file.jpg" />
-<p>Figure 1. Load h5 file into pyxrf</p>
+<p>Figure 1. Load hdf5 file into pyxrf</p>
 <ul class="simple">
 <li>Once the data is loaded, you can see the name of the data set, scan2D_19568_sum,
 which is just next to blue label “which channel data for fitting” as shown in figure 2.
@@ -63,7 +65,7 @@ The “_sum” in the name means this is the pixel summed data from three detect
 on the right part of the GUI, as shown in figure 2.</p>
 </li>
 <li><p class="first">As default, we only load the summed spectrum. If you also want to load spectrum from each vortex detector,
-click the checkbox “Load data from each channel”, and load h5 file again. This time you can select either the summed
+click the checkbox “Load data from each channel”, and load hdf5 file again. This time you can select either the summed
 spectrum from all the detectors or only from one detector to work on, shown in figure 3.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -73,18 +75,25 @@ spectrum from all the detectors or only from one detector to work on, shown in f
 <p>Figure 3. Select more data sets from different detectors</p>
 </li>
 </ul>
-<div class="section" id="format-of-h5-file">
-<h2>Format of h5 file<a class="headerlink" href="#format-of-h5-file" title="Permalink to this headline">¶</a></h2>
-<p>Please download a standard h5 file from the link
+</div>
+<div class="section" id="structure-of-hdf5-file">
+<h2>Structure of hdf5 file<a class="headerlink" href="#structure-of-hdf5-file" title="Permalink to this headline">¶</a></h2>
+<p>Please download a standard hdf5 file from the link
 <a class="reference external" href="https://drive.google.com/file/d/0B45Mm22EF9TNQzFkSW0xa01mbkE/view">https://drive.google.com/file/d/0B45Mm22EF9TNQzFkSW0xa01mbkE/view</a>
-This h5 file mainly contains spectrum from 3 detectors, positions of x,y motors
-and scalers for normalization. Please create h5 file with a similar structure
+This hdf5 file mainly contains spectrum from 3 detectors, positions of x,y motors
+and scalers for normalization. Please create hdf5 file with a similar structure
 in order to use PyXRF.</p>
 <p>For test purposes, a parameter file
 (<a class="reference external" href="https://drive.google.com/file/d/0B45Mm22EF9TNYW11OXozRXVic1E/view">https://drive.google.com/file/d/0B45Mm22EF9TNYW11OXozRXVic1E/view</a>) is also
-provided for users to do fitting for this standard h5 file. However, you should
+provided for users to do fitting for this standard hdf5 file. However, you should
 never create parameter file manually. Parameter file can be easily created
 during the step of automatic peak finding.</p>
+</div>
+<div class="section" id="other-format">
+<h2>Other format<a class="headerlink" href="#other-format" title="Permalink to this headline">¶</a></h2>
+<p>Input of spec file for PyXRF</p>
+<p>Users can transfer spec file to hdf file that pyxrf can take. Please see
+examples at <a class="reference external" href="https://github.com/NSLS-II/PyXRF/blob/master/examples/specfile_to_hdf.ipynb">https://github.com/NSLS-II/PyXRF/blob/master/examples/specfile_to_hdf.ipynb</a></p>
 </div>
 </div>
 
@@ -98,7 +107,9 @@ during the step of automatic peak finding.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Load data into pyxrf</a><ul>
-<li><a class="reference internal" href="#format-of-h5-file">Format of h5 file</a></li>
+<li><a class="reference internal" href="#load-hdf5-file-into-pyxrf">Load hdf5 file into pyxrf</a></li>
+<li><a class="reference internal" href="#structure-of-hdf5-file">Structure of hdf5 file</a></li>
+<li><a class="reference internal" href="#other-format">Other format</a></li>
 </ul>
 </li>
 </ul>
@@ -133,7 +144,7 @@ during the step of automatic peak finding.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2017, Li Li.
+      &copy;2019, Li Li.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
