@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Spectrum fitting" href="summed_spectrum_fit.html" />
-    <link rel="prev" title="About PyXRF" href="index.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -73,6 +73,19 @@ spectrum from all the detectors or only from one detector to work on, shown in f
 <p>Figure 3. Select more data sets from different detectors</p>
 </li>
 </ul>
+<div class="section" id="format-of-h5-file">
+<h2>Format of h5 file<a class="headerlink" href="#format-of-h5-file" title="Permalink to this headline">¶</a></h2>
+<p>Please download a standard h5 file from the link
+<a class="reference external" href="https://drive.google.com/file/d/0B45Mm22EF9TNQzFkSW0xa01mbkE/view">https://drive.google.com/file/d/0B45Mm22EF9TNQzFkSW0xa01mbkE/view</a>
+This h5 file mainly contains spectrum from 3 detectors, positions of x,y motors
+and scalers for normalization. Please create h5 file with a similar structure
+in order to use PyXRF.</p>
+<p>For test purposes, a parameter file
+(<a class="reference external" href="https://drive.google.com/file/d/0B45Mm22EF9TNYW11OXozRXVic1E/view">https://drive.google.com/file/d/0B45Mm22EF9TNYW11OXozRXVic1E/view</a>) is also
+provided for users to do fitting for this standard h5 file. However, you should
+never create parameter file manually. Parameter file can be easily created
+during the step of automatic peak finding.</p>
+</div>
 </div>
 
 
@@ -81,11 +94,19 @@ spectrum from all the detectors or only from one detector to work on, shown in f
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Load data into pyxrf</a><ul>
+<li><a class="reference internal" href="#format-of-h5-file">Format of h5 file</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">About PyXRF</a></li>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
       <li>Next: <a href="summed_spectrum_fit.html" title="next chapter">Spectrum fitting</a></li>
   </ul></li>
 </ul>

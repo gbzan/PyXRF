@@ -44,11 +44,8 @@
             
   <div class="section" id="data-analysis-at-nsls-ii-beamlines">
 <h1>Data analysis at NSLS II beamlines<a class="headerlink" href="#data-analysis-at-nsls-ii-beamlines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="create-working-directory">
-<h2>Create working directory<a class="headerlink" href="#create-working-directory" title="Permalink to this headline">¶</a></h2>
 <p>For instance at HXN, users usually create a directory under /data/users/2017Q1/
 All the experimental data and fitting results will be saved in the created folder.</p>
-</div>
 <div class="section" id="load-fluorescence-data-from-database">
 <h2>Load fluorescence data from database<a class="headerlink" href="#load-fluorescence-data-from-database" title="Permalink to this headline">¶</a></h2>
 <p>At your working directory, first go to pyxrf environment, then type ipython.</p>
@@ -60,32 +57,52 @@ All the experimental data and fitting results will be saved in the created folde
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyxrf.api</span> <span class="k">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>If only load one file</p>
+<p>If you only load data from one run into a file,</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span>make_hdf(1000, fname=‘scan_1000.h5’)
 </pre></div>
 </div>
-<p>Note: the first argument of function ”make_hdf” is the run#(i.e., 1000), the second is the hdf filename to be saved. It may take several minutes to load 200by200 dataset. When loading process is done, you will see ‘scan_1000.h5’ is created in your working directory. Use pyxrf to load that data and work on it.
-Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
-<p>If load multiple files</p>
+<p>Note: the first argument of function ”make_hdf” is the runID (i.e., 1000),
+the second is the hdf filename to be saved. It may take several minutes to load
+200by200 dataset. When loading process is done, you will see ‘scan_1000.h5’
+is created in your working directory. Use pyxrf to load that data and work on it.</p>
+<p>Warning: Data can’t be created if data file already exists. You need to remove
+the old file first. You can also ignore <code class="docutils literal"><span class="pre">fname</span></code> keyword, then the default file
+name is used.</p>
+<p>If multiple files need to be loaded</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">make_hdf</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note: the first argument is the starting run #, the second argument is the ending run #. This function will automatically transform all the fluorescence data within the run number range. If you want to define a prefix name, you can do make_hdf(1000, 1100, prefix=’<a href="#id1"><span class="problematic" id="id2">abc_</span></a>’). The default prefix name is ‘<a href="#id3"><span class="problematic" id="id4">scan2D_</span></a>’.
-Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
-<p>How to load image data from merlin detector</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span>export_hdf(1000, ‘myfile_1000.h5’)
+<p>Note: the first argument is the starting run ID, the second argument is the
+ending run ID. This function will automatically transform all the fluorescence
+data within the run number range. If you want to define a prefix name, you can
+do <code class="docutils literal"><span class="pre">make_hdf(1000,</span> <span class="pre">1100,</span> <span class="pre">prefix='abc_')</span></code>. The default prefix name is
+<code class="docutils literal"><span class="pre">scan2D_</span></code>.</p>
+<p>Warning: Data can’t be created if data file already exists. You need to remove
+the old file first.</p>
+</div>
+<div class="section" id="pixel-fitting-from-command-line">
+<h2>Pixel fitting from command line<a class="headerlink" href="#pixel-fitting-from-command-line" title="Permalink to this headline">¶</a></h2>
+<p>The parameter json file needs to be defined first. This can be created from
+PyXRF GUI when you do summed spectrum fitting.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">fit_pixel_data_and_save</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">param_file_name</span><span class="o">=</span><span class="n">param_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note: the first argument is the run id, while the second is the file name to save data.
-Warning: Data can’t be created if data file already exists. You need to remove the old file first.</p>
+<p>wd is the working directory. fname is the hdf file. param_file is the parameter
+json file. You can easily write for loop to fit multiple data.</p>
+<p>Please also refer to jupyter notebook example
+<a class="reference external" href="https://github.com/NSLS-II/PyXRF/blob/master/examples/Batch_mode_fit.ipynb">https://github.com/NSLS-II/PyXRF/blob/master/examples/Batch_mode_fit.ipynb</a></p>
 </div>
-<div class="section" id="how-to-run-pyxrf">
-<h2>How to run PyXRF<a class="headerlink" href="#how-to-run-pyxrf" title="Permalink to this headline">¶</a></h2>
-<p>PyXRF is a python-based x-ray fluorescence analysis package. Type the following two lines in a newly opened terminal console to initiate pyxrf.</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">pyxrf</span>
-<span class="n">pyxrf</span>
-</pre></div>
-</div>
+<div class="section" id="how-to-add-more-beamlines-to-use-pyxrf">
+<h2>How to add more beamlines to use PyXRF<a class="headerlink" href="#how-to-add-more-beamlines-to-use-pyxrf" title="Permalink to this headline">¶</a></h2>
+<p>We basically need to transform data from databroker into the format PyXRF can
+take. The only file we need to work on is
+<code class="docutils literal"><span class="pre">PyXRF/pyxrf/model/load_data_from_db.py</span></code>.</p>
+<p>For instance, in order to transfer fluorescence data at HXN beamline to PyXRF
+format, you first need to write a function called <code class="docutils literal"><span class="pre">map_data2D_hxn</span></code> in file
+<code class="docutils literal"><span class="pre">load_data_from_db.py</span></code>. Then in function of <code class="docutils literal"><span class="pre">fetch_data_from_db</span></code>, you
+simply add hxn beamline. Please refer to source code to see how it works.</p>
+<p>Those functions on data IO should be moved to
+<a class="reference external" href="https://github.com/NSLS-II/suitcase-pyxrf">https://github.com/NSLS-II/suitcase-pyxrf</a> later.</p>
 </div>
 </div>
 
@@ -99,9 +116,9 @@ Warning: Data can’t be created if data file already exists. You need to remove
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Data analysis at NSLS II beamlines</a><ul>
-<li><a class="reference internal" href="#create-working-directory">Create working directory</a></li>
 <li><a class="reference internal" href="#load-fluorescence-data-from-database">Load fluorescence data from database</a></li>
-<li><a class="reference internal" href="#how-to-run-pyxrf">How to run PyXRF</a></li>
+<li><a class="reference internal" href="#pixel-fitting-from-command-line">Pixel fitting from command line</a></li>
+<li><a class="reference internal" href="#how-to-add-more-beamlines-to-use-pyxrf">How to add more beamlines to use PyXRF</a></li>
 </ul>
 </li>
 </ul>
