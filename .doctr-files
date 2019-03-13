@@ -3,6 +3,7 @@
 ./_images/more_datasets.png
 ./_images/select_data_plot.png
 ./_images/zoomin_plot.png
+./_sources/credits.rst.txt
 ./_sources/data_input.rst.txt
 ./_sources/data_output.rst.txt
 ./_sources/index.rst.txt
@@ -37,6 +38,7 @@
 ./_static/up.png
 ./_static/websupport.js
 ./_static/zoomin_plot.png
+./credits.html
 ./data_input.html
 ./data_output.html
 ./genindex.html
