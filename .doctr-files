@@ -8,6 +8,7 @@
 ./_sources/data_output.rst.txt
 ./_sources/index.rst.txt
 ./_sources/installation.rst.txt
+./_sources/questions.rst.txt
 ./_sources/summed_spectrum_fit.rst.txt
 ./_sources/work_at_beamlines.rst.txt
 ./_static/ajax-loader.gif
@@ -46,6 +47,7 @@
 ./index.html
 ./installation.html
 ./objects.inv
+./questions.html
 ./search.html
 ./searchindex.js
 ./summed_spectrum_fit.html
