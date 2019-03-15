@@ -47,11 +47,26 @@
 <p>Once you select which data to fit (either summed spectrum or from given detector), it
 is ready to move on to fitting step. Please click the Fit panel on the upper left corner,
 which is next to File IO (Figure 1).</p>
+<div class="section" id="automatic-peak-finding-create-parameter-json-file">
+<h2>Automatic peak finding (create parameter json file)<a class="headerlink" href="#automatic-peak-finding-create-parameter-json-file" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t have a parameter json file, you can start from scratch with automatic
+peak finding.</p>
+<ul class="simple">
+<li>Click button <code class="docutils literal"><span class="pre">Find</span> <span class="pre">Elements</span> <span class="pre">Automatically</span></code>, you will see a small window
+called <code class="docutils literal"><span class="pre">Automatic</span> <span class="pre">Element</span> <span class="pre">Finding</span></code> pop up.</li>
+<li>Adjust parameter in this window, such as calibration parameters a0, a1,
+incident E, etc.</li>
+<li>Then click button <code class="docutils literal"><span class="pre">Find</span> <span class="pre">Elements</span></code> in the same window.</li>
+<li>You will see that many elements are found automatically. You can remove small
+intensity elements, or add/remove elements based on your own opinion.</li>
+<li>Click button <code class="docutils literal"><span class="pre">Save</span></code> to save this parameter configuration for later use.</li>
+</ul>
+</div>
 <div class="section" id="load-parameter-file">
 <h2>Load parameter file<a class="headerlink" href="#load-parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>In order to perform data fitting, you need to load a json file into pyxrf by
-clicking “Import Parameters” (Figure 1). The json file saves all the
-parameters for data fitting.</p>
+<p>If you already have a parameter json file, you need to load it into pyxrf by
+clicking “Import Parameters” (Figure 1). Otherwise, please refer to the previous
+step. The json file saves all the parameters for data fitting.</p>
 <img alt="_images/load_parameter_file.png" src="_images/load_parameter_file.png" />
 <p>Figure 1. Load json file</p>
 </div>
@@ -108,6 +123,7 @@ fitting is done, the output will be 2D map for different elements.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Spectrum fitting</a><ul>
+<li><a class="reference internal" href="#automatic-peak-finding-create-parameter-json-file">Automatic peak finding (create parameter json file)</a></li>
 <li><a class="reference internal" href="#load-parameter-file">Load parameter file</a></li>
 <li><a class="reference internal" href="#plot-emission-lines">Plot emission lines</a></li>
 <li><a class="reference internal" href="#add-remove-elements">Add/Remove elements</a></li>
