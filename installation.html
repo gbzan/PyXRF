@@ -44,83 +44,94 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>PyXRF works for python 2.7, 3.5 and 3.6 in Linux/Mac system. For Windows, we
-only support python 3.5 version. We plan to move PyXRF to conda-forge soon.</p>
-<p>First you need to install [conda] (<a class="reference external" href="http://continuum.io/downloads">http://continuum.io/downloads</a>). We suggest
-anaconda because it is a complete installation of the entire scientific python
-stack, but is ~400 MB.  For advanced users, consider downloading [miniconda]
-(<a class="reference external" href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>) because it is a smaller download (~20 MB).</p>
-<div class="section" id="linux-mac">
-<h2>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this headline">¶</a></h2>
-<p>Create a conda environment (say pyxrf_test) with python 3.6.</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pyxrf_test</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.6</span>
+<p>PyXRF is supported for Python 3.6 and 3.7 in Linux/Mac/Windows systems.
+The easiest way to install PyXRF is to load it into a Conda environment from
+<code class="code docutils literal"><span class="pre">nsls2forge</span></code> Anaconda channel. Installation instructions are
+identical for all supported OS.</p>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="https://www.anaconda.com/distribution">Conda</a>. Select Python 3.7 version.
+Anaconda package is recommended to casual users because it installs the entire
+scientific Python stack. Advanced users may consider installing
+<a class="reference external" href="http://conda.pydata.org/miniconda.html">Miniconda</a> since it is a much smaller
+download (~400 MB vs. ~20 MB).</p>
+<p>If Conda is already installed on your computer, proceed to the next step.</p>
+</li>
+<li><p class="first">Open a terminal (Linux/Mac) or start Anaconda Prompt from Windows Start Menu (Windows).</p>
+</li>
+<li><p class="first">If you are using existing Conda installation, update Conda:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="o">-</span><span class="n">n</span> <span class="n">base</span> <span class="o">-</span><span class="n">c</span> <span class="n">defaults</span> <span class="n">conda</span>
 </pre></div>
 </div>
-<p>Then go to the environment named pyxrf_test</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">pyxrf_test</span>
+<p>If you are installing PyXRF on a Windows platform, close and restart Anaconda Prompt.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following instructions work in an environment with Conda 4.6 or newer.
+If PyXRF is installed in an older Conda environment then different command syntax
+must be used on some platforms (particularly Windows). Refer to the Conda documentation
+for more details.</p>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p class="first">Create a new Conda environment (e.g. <code class="code docutils literal"><span class="pre">pyxrf-env</span></code>) with Python 3.6 or 3.7:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pyxrf</span><span class="o">-</span><span class="n">env</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
 </pre></div>
 </div>
-<p>At the same environment, install pyxrf by simply typing</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="n">xraylib</span><span class="o">=</span><span class="mf">3.2</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</li>
+<li><p class="first">Activate the created Conda environment (in our example <code class="code docutils literal"><span class="pre">pyxrf-env</span></code>):</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pyxrf</span><span class="o">-</span><span class="n">env</span>
 </pre></div>
 </div>
-<p>Note: there is some conflict with xraylib=3.3, so we put a constraint on xraylib.
-This can be removed later.</p>
-</div>
-<div class="section" id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
-<p>Install windows version of anaconda from (<a class="reference external" href="http://continuum.io/downloads">http://continuum.io/downloads</a>).
-Then you should see Anaconda Prompt installed in your computer. Double click Anaconda Prompt, and type the following lines to finish the installation.</p>
-<p>Create a conda environment(say pyxrf_test) with python3.5.</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pyxrf_test</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.5</span>
+</li>
+<li><p class="first">Install PyXRF in the active Conda environment (in our example <code class="code docutils literal"><span class="pre">pyxrf-env</span></code>):</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="o">-</span><span class="n">c</span> <span class="n">nsls2forge</span>
 </pre></div>
 </div>
-<p>Then go to the environment named pyxrf_test</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">activate</span> <span class="n">pyxrf_test</span>
+</li>
+</ol>
+<div class="section" id="starting-pyxrf">
+<h2>Starting PyXRF<a class="headerlink" href="#starting-pyxrf" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a terminal (Linux/Mac) or start Anaconda Prompt from Windows Start Menu (Windows).</p>
+</li>
+<li><p class="first">Activate Conda environment that contains PyXRF installation
+(in our example <code class="code docutils literal"><span class="pre">pyxrf-env</span></code>):</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pyxrf</span><span class="o">-</span><span class="n">env</span>
 </pre></div>
 </div>
-<p>At the same environment, install pyxrf by simply typing</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyxrf</span> <span class="n">xraylib</span> <span class="n">pyqt</span><span class="o">=</span><span class="mf">4.11</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="run-pyxrf">
-<h2>Run PyXRF<a class="headerlink" href="#run-pyxrf" title="Permalink to this headline">¶</a></h2>
-<p>At pyxrf_test environment, type</p>
+</li>
+<li><p class="first">Start PyXRF by typing:</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">pyxrf</span>
 </pre></div>
 </div>
+</li>
+</ol>
 </div>
-<div class="section" id="update-pyxrf">
-<h2>Update PyXRF<a class="headerlink" href="#update-pyxrf" title="Permalink to this headline">¶</a></h2>
-<p>At pyxrf_test environment, type</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">pyxrf</span> <span class="o">-</span><span class="n">c</span> <span class="n">lightsource2</span><span class="o">-</span><span class="n">tag</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<div class="section" id="updating-pyxrf">
+<h2>Updating PyXRF<a class="headerlink" href="#updating-pyxrf" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a terminal (Linux/Mac) or start Anaconda Prompt from Windows Start Menu (Windows)</p>
+</li>
+<li><p class="first">Activate Conda environment that contains PyXRF installation
+(in our example <code class="code docutils literal"><span class="pre">pyxrf-env</span></code>):</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pyxrf</span><span class="o">-</span><span class="n">env</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reminder">
-<h2>Reminder<a class="headerlink" href="#reminder" title="Permalink to this headline">¶</a></h2>
-<p>Every time you open a new terminal, make sure to go to pyxrf_test environment
-first, then launch the software. For linux and mac system, type</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">pyxrf_test</span>
+</li>
+<li><p class="first">Update PyXRF by typing:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">pyxrf</span> <span class="o">-</span><span class="n">c</span> <span class="n">nsls2forge</span>
 </pre></div>
 </div>
-<p>For windows,</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">activate</span> <span class="n">pyxrf_test</span>
+</li>
+</ol>
+</div>
+<div class="section" id="deactivating-conda-environment">
+<h2>4. Deactivating Conda environment<a class="headerlink" href="#deactivating-conda-environment" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
 </pre></div>
 </div>
-<p>then lanch pyxrf by typing</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">pyxrf</span>
-</pre></div>
-</div>
-<p>To leave this environment, at Linux and Mac system just type</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">deactivate</span>
-</pre></div>
-</div>
-<p>and for Windows, type</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
-</pre></div>
-</div>
+</div></blockquote>
 </div>
 </div>
 
@@ -134,11 +145,9 @@ first, then launch the software. For linux and mac system, type</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#linux-mac">Linux/Mac</a></li>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#run-pyxrf">Run PyXRF</a></li>
-<li><a class="reference internal" href="#update-pyxrf">Update PyXRF</a></li>
-<li><a class="reference internal" href="#reminder">Reminder</a></li>
+<li><a class="reference internal" href="#starting-pyxrf">Starting PyXRF</a></li>
+<li><a class="reference internal" href="#updating-pyxrf">Updating PyXRF</a></li>
+<li><a class="reference internal" href="#deactivating-conda-environment">4. Deactivating Conda environment</a></li>
 </ul>
 </li>
 </ul>
